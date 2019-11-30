@@ -1,7 +1,46 @@
-﻿
+@model Nhom3.Models.SinhVien; 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = "Details"; 
 }
 
 <h2>Details</h2>
+<body>
+    <table class="mainmenu">
+        <tr>
+            <td>Họ Tên: </td>
+            <td> @Html.DisplayFor(model => model.HoTen)</td>
+        </tr>
+        
+        <tr>
+            <td>Ngày Sinh: </td>
+            <td> @Html.DisplayFor(model => model.NgaySinh)</td>
+        </tr>
+      
+        <tr>
+            <td>SĐT: </td>
+            <td> @Html.DisplayFor(model => model.DienThoai)</td>
+        </tr>
+        
+
+    </table>
+    <br />
+    <br />
+    <div class="mainmenu">
+        <a asp-action="Edit" asp-controller="ThanhViens" asp-route-id="@Model.MaSV" >Sửa</a>
+
+        <a asp-action="Index" asp-controller="Home">Trở Về</a>
+    </div>
+
+
+
+
+
+
+
+
+
+    @section Scripts {
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }
+</body>
 
