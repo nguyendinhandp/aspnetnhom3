@@ -11,6 +11,7 @@ namespace Nhom3.Models
         public DatabaseContext(DbContextOptions options)
             : base(options)
         {
+            
         }
 
         public DbSet<Khoa> Khoa { get; set; }
