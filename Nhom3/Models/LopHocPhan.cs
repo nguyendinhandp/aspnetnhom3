@@ -15,7 +15,7 @@ namespace Nhom3.Models
 
         public string NamHoc { get; set; }
         public int HocKy { get; set; }
-        public string Mon { get; set; }
+        public int Mon { get; set; }
         public double DiemGK { get; set; }
         public double DiemCuoiKy { get; set; }
 
