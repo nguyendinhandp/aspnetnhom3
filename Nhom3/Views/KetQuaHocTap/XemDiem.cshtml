@@ -11,15 +11,22 @@
         <th>Môn học</th>
         <th>Điểm giữa kỳ</th>
         <th>Điểm cuối kỳ</th>
+        <th>Tác vụ</th>
     </tr>
     @foreach(Nhom3.Models.KetQuaHocTapDTO item in this.ViewBag.Result){
-    <tr>
-        <td style="text-align:center;">@item.SinhVien.MaSV</td>
-        <td style="text-align:center;">@item.SinhVien.HoTen</td>
-        <td style="text-align:center;">@item.MonHoc.TenMon</td>
-        <td style="text-align:center;">@item.DGK</td>
-        <td style="text-align:center;">@item.DCK</td>
-    </tr>
+        <form method="post" action="/KetQuaHocTap/LuuDiem">
+            <tr>
+                <td style="text-align:center;">@item.SinhVien.MaSV</td>
+                <td style="text-align:center;">@item.SinhVien.HoTen</td>
+                <td style="text-align:center;">@item.MonHoc.TenMon</td>
+                <input type="hidden" name="MaSV" value="@item.SinhVien.MaSV" />
+                <input type="hidden" name="MaMon" value="@item.MonHoc.MaMon" />
+                <input type="hidden" name="MaLHP" value="@item.LopHocPhan.MaLHP" />
+                <td style="text-align:center;"><input type="number" name="DGK" step="any" value="@item.DGK" /></td>
+                <td style="text-align:center;"><input type="number" name="DCK" step="any" value="@item.DCK" /></td>
+                <td style="text-align:center;"><input type="submit" name="name" value="Lưu" /></td>
+            </tr>
+        </form>
     }
 </table>
 

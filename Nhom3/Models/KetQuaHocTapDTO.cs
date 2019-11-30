@@ -9,6 +9,7 @@ namespace Nhom3.Models
     {
         public SinhVien SinhVien { get; set; }
         public MonHoc MonHoc { get; set; }
+        public LopHocPhan LopHocPhan { get; set; }
         public double DGK { get; set; }
         public double DCK { get; set; }
     }

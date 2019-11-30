@@ -18,6 +18,10 @@ namespace Nhom3.Controllers
         {
             return this.database.MonHoc.FirstOrDefault(x=>x.MaMon.Equals(mamh));
         }
+        private LopHocPhan GetLopHocPhan(int MaLop)
+        {
+            return this.database.LopHocPhan.FirstOrDefault(x=>x.MaLHP.Equals(MaLop));
+        }
         private DatabaseContext database { get; set; } = new DatabaseContext();
         public IActionResult XemDiem(int? MaMon,int? MaLop,int? MaSv)
         {
@@ -44,6 +48,7 @@ namespace Nhom3.Controllers
                     {
                         SinhVien = this.GetSinhVien(x.MaSV),
                         MonHoc = this.GetMonHoc(x.MaMon),
+                        LopHocPhan = this.GetLopHocPhan(x.MaLHP),
                         DCK = x.DCK,
                         DGK = x.DGK
                     };
@@ -74,6 +79,16 @@ namespace Nhom3.Controllers
             //    .ToList();
             this.ViewBag.Result = r;
             return View();
+        }
+        [HttpPost]
+        public IActionResult LuuDiem(KetQuaHocTap data)
+        {
+            if(data != null)
+            {
+                this.database.KetQuaHocTap.Update(data);
+                this.database.SaveChanges();
+            }
+            return Redirect("/KetQuaHocTap/XemDiem");
         }
     }
 }
