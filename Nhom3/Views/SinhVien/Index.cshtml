@@ -42,6 +42,7 @@
                     </td>
 
                     <td>
+                        <a asp-controller="KetQuaHocTap" asp-action="XemDiem" asp-route-id="">Xem Điểm</a> |
                         <a asp-controller="SinhVien" asp-action="Edit" asp-route-id="@item.MaSV">Sửa</a> |
                         <a asp-action="Delete" asp-controller="SinhVien" asp-route-id="@item.MaSV" onclick="return confirm('Bạn có chắc muốn xóa Sinh viên này ?');">Xóa</a>
                     </td>

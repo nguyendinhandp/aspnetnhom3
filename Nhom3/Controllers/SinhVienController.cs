@@ -11,7 +11,7 @@ namespace Nhom3.Controllers
 {
     public class SinhVienController : Controller
     {
-        private DatabaseContext _context;
+        private DatabaseContext _context { get; set; } = new DatabaseContext();
 
        
         // GET: SinhVien
