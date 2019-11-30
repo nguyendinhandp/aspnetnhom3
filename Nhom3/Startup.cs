@@ -47,7 +47,11 @@ namespace Nhom3
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-
+            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
+            {
+                var context = serviceScope.ServiceProvider.GetRequiredService<DatabaseContext>();
+                context.Database.EnsureCreated();
+            }
             app.UseStaticFiles();
             app.UseCookiePolicy();
 
