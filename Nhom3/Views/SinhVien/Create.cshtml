@@ -1,7 +1,38 @@
-﻿
+﻿@model Nhom3.Models.SinhVien;
 @{
     ViewData["Title"] = "Create";
 }
 
 <h2>Create</h2>
+<body>
+    <div class="row mainmenu">
+        <div class="col-md-8">
+            <form asp-action="Create" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                
+                <div class="form-group">
+                    Họ Tên
+                    <input asp-for="HoTen" class="form-control" />
+                    <span asp-validation-for="HoTen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    Ngày Sinh
+                    <input asp-for="NgaySinh" class="form-control" />
+                    <span asp-validation-for="NgaySinh" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    Điện Thoại
+                    <input asp-for="DienThoai" class="form-control" />
+                    <span asp-validation-for="DienThoai" class="text-danger"></span>
+                </div>
+                
+                <div class="form-group">
+                    <input type="submit" value="Đăng Ký" />
+                    <a asp-action="Index" >Trở Về</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
 
