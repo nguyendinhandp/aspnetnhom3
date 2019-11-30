@@ -38,7 +38,7 @@ namespace Nhom3.Controllers
             return View();
         }
 
-        // POST: SinhVien/Create
+       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<SinhVien>> Create ([Bind("MaSV,HoTen,NgaySinh,DienThoai")] SinhVien sinhVien)
