@@ -63,6 +63,7 @@ namespace Nhom3.Controllers
             }
             catch
             {
+                // return view
                 return View();
             }
         }
@@ -70,6 +71,7 @@ namespace Nhom3.Controllers
         // GET: SinhVien/Delete/5
         public ActionResult Delete(int id)
         {
+            //return view
             return View();
         }
 
@@ -85,6 +87,20 @@ namespace Nhom3.Controllers
                 return RedirectToAction(nameof(Index));
             }
             catch
+            {
+                return View();
+            }
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public IActionResult add(int id, IFormCollection collection)
+        {
+            if (ModelState.IsValid)
+            {
+                add.AddStudent(nameof(Index));
+                return View("Thanks");
+            }
+            else
             {
                 return View();
             }
