@@ -91,19 +91,19 @@ namespace Nhom3.Controllers
                 return View();
             }
         }
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult add(int id, IFormCollection collection)
-        {
-            if (ModelState.IsValid)
-            {
-                add.AddStudent(nameof(Index));
-                return View("Thanks");
-            }
-            else
-            {
-                return View();
-            }
-        }
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public IActionResult add(int id, IFormCollection collection)
+        //{
+         //   if (ModelState.IsValid)
+           // {
+             //   add.AddStudent(nameof(Index));
+             //   return View("Thanks");
+           // }
+           // else
+           // {
+               // return View();
+           // }
+        //}
     }
 }
