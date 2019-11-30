@@ -19,7 +19,6 @@ namespace Nhom3.Controllers
         {
             var sv = _context.SinhVien.ToList();
             return View(sv);
-            
         }
 
         // GET: SinhVien/Details/5
@@ -37,32 +36,24 @@ namespace Nhom3.Controllers
         {
             return View();
         }
-
-       
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult<SinhVien>> Create ([Bind("MaSV,HoTen,NgaySinh,DienThoai")] SinhVien sinhVien)
         {
             if (ModelState.IsValid)
             {
-                
                 _context.Add(sinhVien);
                 await _context.SaveChangesAsync();
                 return RedirectToAction("Index", "SinhVien");
             }
-
             return View(sinhVien);
         }
-
         // GET: SinhVien/Edit/5
         public ActionResult Edit(int id)
         {
             SinhVien sv = _context.SinhVien.Where(p => p.MaSV == id).First();
-
-        
             return View(sv);
         }
-
         // POST: SinhVien/Edit/
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -72,15 +63,12 @@ namespace Nhom3.Controllers
             {
                 return NotFound();
             }
-
             if (ModelState.IsValid)
             {
                 try
                 {
-                   
                     _context.Update(sinhVien);
-                    await _context.SaveChangesAsync();//
-                   
+                    await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -95,10 +83,8 @@ namespace Nhom3.Controllers
                 }
                 return RedirectToAction("Index", "SinhVien");
             }
-
             return RedirectToAction("Index", "SinhVien");
         }
-
         // GET: SinhVien/Delete/5
         [HttpGet]
         public async Task<ActionResult<SinhVien>> Delete(int id)
@@ -108,17 +94,13 @@ namespace Nhom3.Controllers
             {
                 return NotFound();
             }
-         
             _context.SinhVien.Remove(sinhVien);
             await _context.SaveChangesAsync();
             return RedirectToAction("Index", "SinhVien");
         }
-
-
         private bool SinhVienExists(int id)
         {
             return _context.SinhVien.Any(e => e.MaSV == id);
         }
-
     }
 }
