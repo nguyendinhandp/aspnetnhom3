@@ -10,15 +10,19 @@ namespace Nhom3.Controllers
 {
     public class KetQuaHocTapController : Controller
     {
+        // get sinh vien
         private SinhVien GetSinhVien(int masv)
         {
             return this.database.SinhVien.FirstOrDefault(x=>x.MaSV.Equals(masv));
         }
+
+        //get monhoc
         private MonHoc GetMonHoc(int mamh)
         {
             return this.database.MonHoc.FirstOrDefault(x=>x.MaMon.Equals(mamh));
         }
         private DatabaseContext database { get; set; } = new DatabaseContext();
+        //xem diem
         public IActionResult XemDiem(int? MaMon,int? MaLop,int? MaSv)
         {
             var result = database
