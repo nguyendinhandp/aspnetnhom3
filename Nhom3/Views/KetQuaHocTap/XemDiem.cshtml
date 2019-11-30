@@ -1,0 +1,25 @@
+﻿
+@{
+    ViewData["Title"] = "MonHoc";
+    Layout = null;
+}
+
+<table style="width:100%">
+    <tr>
+        <th>Mã sinh viên</th>
+        <th>Tên sinh viên</th>
+        <th>Môn học</th>
+        <th>Điểm giữa kỳ</th>
+        <th>Điểm cuối kỳ</th>
+    </tr>
+    @foreach(Nhom3.Models.KetQuaHocTapDTO item in this.ViewBag.Result){
+    <tr>
+        <td style="text-align:center;">@item.SinhVien.MaSV</td>
+        <td style="text-align:center;">@item.SinhVien.HoTen</td>
+        <td style="text-align:center;">@item.MonHoc.TenMon</td>
+        <td style="text-align:center;">@item.DGK</td>
+        <td style="text-align:center;">@item.DCK</td>
+    </tr>
+    }
+</table>
+

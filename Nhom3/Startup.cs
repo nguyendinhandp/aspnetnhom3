@@ -31,8 +31,7 @@ namespace Nhom3
                 options.CheckConsentNeeded = context => true;
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
-
-            services.AddDbContext<DatabaseContext>(opts => opts.UseSqlServer(Configuration["ConnectionString:Nhom3"]));
+            
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
 
@@ -46,11 +45,6 @@ namespace Nhom3
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-            }
-            using (var serviceScope = app.ApplicationServices.GetService<IServiceScopeFactory>().CreateScope())
-            {
-                var context = serviceScope.ServiceProvider.GetRequiredService<DatabaseContext>();
-                context.Database.EnsureCreated();
             }
             app.UseStaticFiles();
             app.UseCookiePolicy();

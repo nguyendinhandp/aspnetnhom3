@@ -8,10 +8,13 @@ namespace Nhom3.Models
 {
     public class DatabaseContext : DbContext
     {
-        public DatabaseContext(DbContextOptions options)
-            : base(options)
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            
+            optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=Nhom3;Integrated Security=True");
+        }
+        public DatabaseContext() : base()
+        {
+            this.Database.EnsureCreated();
         }
         protected override void OnModelCreating(ModelBuilder builder)
         {
